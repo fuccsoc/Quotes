@@ -46,6 +46,26 @@ poetry run python3 -m app
 The application will start on the port specified in the <code>config.toml</code> file (default is 1337). You can then access the API documentation at `http://localhost:1337/docs`
 
 
+<h1>Docker</h1>
+
+You can also run Quotes API using Docker:
+
+**Using Docker Compose (recommended):**
+
+<pre lang="bash">
+docker compose up --build
+</pre>
+
+**Using Docker directly:**
+
+<pre lang="bash">
+docker build -t quotes .
+docker run -p 1337:1337 -v ./config.toml:/app/config.toml:ro quotes
+</pre>
+
+The API will be available at `http://localhost:1337/docs`
+
+
 <h1>API Endpoints</h1>
 
 Quotes API provides the following endpoint for generating quote images:
